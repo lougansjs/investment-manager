@@ -9,6 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = User.find(current_user.id)
     set_nickname_to_github
+    byebug
     if @user.update(user_params)
       set_flash_message :notice, :updated
       redirect_to after_update_path_for(@user)
